@@ -1,9 +1,7 @@
 import { map } from 'lodash'
 import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
 
 import Post from './post'
-import fetchPosts from '../actions'
 
 const PostList = (props) => {
   return (
@@ -23,18 +21,4 @@ PostList.propTypes = {
   loadPostsOnClickFunction: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    posts: state.posts.data,
-  }
-}
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    loadPostsOnClickFunction: () => {
-      dispatch(fetchPosts())
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostList)
+export default PostList
